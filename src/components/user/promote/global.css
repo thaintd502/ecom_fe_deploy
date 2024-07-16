@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --body-bold: Roboto;
+  
+    /* font sizes */
+    --body-bold-size: 14px;
+  
+    /* Colors */
+    --color-black: #000;
+  }

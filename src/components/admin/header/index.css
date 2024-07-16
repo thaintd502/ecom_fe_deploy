@@ -1,0 +1,282 @@
+.header-admin-height-icon {
+  height: 32px;
+  width: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.header-admin-width-value,
+.header-admin-width-value1 {
+  height: 0;
+  width: 0;
+  position: relative;
+}
+.header-admin-image,
+.header-admin-width {
+  display: flex;
+  flex-direction: row;
+}
+.header-admin-width {
+  height: 0;
+  width: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.header-admin-image {
+  width: 100px;
+  height: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 0;
+  box-sizing: border-box;
+  background-image: url(../../../assets/images/ic_logo_nobg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.header-admin-title {
+  align-self: stretch;
+  position: relative;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.header-admin-selection-item {
+  align-self: stretch;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-12xs) 0;
+}
+.header-admin-icon1 {
+  width: 10.2px;
+  height: 6.9px;
+  position: relative;
+}
+.header-admin-icon,
+.header-admin-select {
+  box-sizing: border-box;
+  align-items: center;
+}
+.header-admin-icon {
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 0 6px;
+}
+.header-admin-select {
+  height: 32px;
+  width: 32px;
+  border-radius: 2px;
+  background-color: var(--character-primaryinverse);
+  border: 1px solid var(--neutral-5);
+  display: none;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) var(--padding-12xs) var(--padding-9xs) var(--padding-xs);
+  color: var(--character-title-85);
+}
+.header-admin-questioncircle-icon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header-admin-icon-wrapper {
+  height: 32px;
+  background-color: var(--hitbox);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  box-sizing: border-box;
+}
+.header-admin-bell-icon {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header-admin-icon2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs);
+}
+.header-admin-number {
+  text-decoration: none;
+  position: relative;
+  line-height: 20px;
+  color: inherit;
+  display: inline-block;
+  min-width: 15px;
+}
+.header-admin-badge {
+  border-radius: 100px;
+  background-color: var(--dust-red-5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-5xs);
+}
+.header-admin-badgecount {
+  background-color: var(--hitbox);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.header-admin-offset- {
+  margin: 0 !important;
+  position: absolute;
+  z-index: 1;
+}
+.header-admin-badge-wrapper,
+.header-admin-badgeon-icon,
+.header-admin-offset- {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.header-admin-badge-wrapper {
+  height: 0;
+  width: 0;
+  position: relative;
+}
+.header-admin-badgeon-icon {
+  /* padding: var(--padding-xs); */
+  text-align: center;
+  font-size: var(--footnote-system-monospace-size);
+  font-family: var(--footnote-system-monospace);
+  margin-top: 6px;
+}
+.header-admin-user-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header-admin-icon-wrapper1 {
+  background-color: var(--hitbox);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-5xs) 0 0;
+}
+.header-admin-user-content {
+  text-decoration: none;
+  position: relative;
+  line-height: 22px;
+  color: inherit;
+  display: inline-block;
+  min-width: 39px;
+}
+.header-admin-layoutblockshorizontal2,
+.header-admin-texttext,
+.header-admin-texttext-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.header-admin-texttext {
+  overflow: hidden;
+  flex-direction: row;
+}
+.header-admin-layoutblockshorizontal2,
+.header-admin-texttext-wrapper {
+  flex-direction: column;
+  padding: var(--padding-12xs) 0 0;
+}
+.header-admin-layoutblockshorizontal2 {
+  flex-direction: row;
+  padding: var(--padding-xs);
+}
+.header-admin-language-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header-admin-icon-wrapper2 {
+  height: 32px;
+  background-color: var(--hitbox);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  box-sizing: border-box;
+}
+.header-admin-header,
+.header-admin-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.header-admin-toolbar {
+  width: 353px;
+  justify-content: flex-end;
+  row-gap: 20px;
+  max-width: 100%;
+}
+.header-admin-header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background-color: #001529;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-sizing: border-box;
+  line-height: normal;
+  letter-spacing: normal;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--body-regular-size);
+  color: var(--character-primaryinverse);
+  font-family: var(--body-regular);
+}
+@media screen and (max-width: 570px) {
+  .header-admin-header {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 168px) {
+  .header-admin-toolbar {
+    flex-wrap: wrap;
+  }
+}
+
+/* css button logout  */
+.header-admin-logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 6px;
+}
+
+.header-admin-logout-button:hover {
+  background-color: #d32f2f;
+}

@@ -1,0 +1,15 @@
+.app-container-home {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sider-container-home {
+    width: 250px;
+    flex: 0 0 auto; 
+  }
+  
+  .header-container-home {
+    margin-left: 5px;
+    flex: 1;
+  }
+  

@@ -1,0 +1,22 @@
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --h4-medium: Roboto;
+
+  /* font sizes */
+  --h4-medium-size: 20px;
+  --body-regular-size: 14px;
+
+  /* Colors */
+  --neutral-1: #fff;
+  --character-secondary-45: rgba(0, 0, 0, 0.45);
+  --character-title-85: rgba(0, 0, 0, 0.85);
+
+  /* Paddings */
+  --padding-base: 16px;
+}

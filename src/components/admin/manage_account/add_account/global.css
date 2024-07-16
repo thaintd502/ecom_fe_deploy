@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --body-regular: Roboto;
+    --font-simsong: SimSong;
+  
+    /* font sizes */
+    --body-regular-size: 14px;
+  
+    /* Colors */
+    --neutral-1: #fff;
+    --primary-6: #1890ff;
+    --neutral-2: #fafafa;
+    --character-title-85: rgba(0, 0, 0, 0.85);
+    --hitbox: rgba(255, 255, 255, 0);
+    --neutral-5: #d9d9d9;
+    --color-black: #000;
+    --dust-red-5: #ff4d4f;
+  
+    /* Gaps */
+    --gap-9xs: 4px;
+  
+    /* Paddings */
+    --padding-5xl: 24px;
+    --padding-10xs: 3px;
+    --padding-2xs: 11px;
+    --padding-5xs: 8px;
+    --padding-6xs: 7px;
+    --padding-xs: 12px;
+  
+    /* Border radiuses */
+    --br-11xs: 2px;
+  
+    /* Effects */
+    --drop-shadow-button-primary: 0px 2px 0px rgba(0, 0, 0, 0.04);
+  }

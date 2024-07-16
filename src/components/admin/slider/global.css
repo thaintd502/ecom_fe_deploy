@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --body-regular: Roboto;
+  
+    /* font sizes */
+    --body-regular-size: 14px;
+  
+    /* Colors */
+    --conditional-sider-background: #fff;
+    --character-title-85: rgba(0, 0, 0, 0.85);
+    --primary-6: #1890ff;
+  
+    /* Gaps */
+    --gap-5xs: 8px;
+    --gap-3xs: 10px;
+  
+    /* Paddings */
+    --padding-base: 16px;
+    --padding-4xs: 9px;
+    --padding-xl: 20px;
+    --padding-9xs: 4px;
+    --padding-21xl: 40px;
+  
+    /* Effects */
+    --drop-shadow-015: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    --border-divider-divider: 0px 1px 0px #f0f0f0 inset;
+  }

@@ -1,0 +1,233 @@
+.tng-i-h {
+    position: relative;
+    line-height: 24px;
+    display: inline-block;
+    min-width: 111px;
+  }
+  .mua-hng-000 {
+    position: relative;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  .bo-hnh-000,
+  .mua-hng-000 {
+    font-weight: 500;
+  }
+  .bo-hnh-000-container {
+    position: relative;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  .contact-numbers,
+  .purchase-support {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .contact-numbers {
+    gap: var(--gap-5xs);
+    font-size: var(--body-regular-size);
+  }
+  .purchase-support {
+    gap: var(--gap-base);
+  }
+  .h-tr-khch {
+    text-decoration: none;
+    position: relative;
+    line-height: 24px;
+    font-weight: 700;
+    color: inherit;
+  }
+  .khiu-ni-bi {
+    display: inline-block;
+    min-width: 129px;
+  }
+  .chnh-sch-bn,
+  .chnh-sch-bo,
+  .chnh-sch-i,
+  .chnh-sch-v,
+  .chnh-sch-vn,
+  .hng-dn-mua,
+  .hng-dn-thanh,
+  .ho-n-gtgt,
+  .khiu-ni-bi {
+    position: relative;
+    line-height: 22px;
+  }
+  .chnh-sch-bo {
+    width: 201px;
+    display: inline-block;
+  }
+  .customer-support,
+  .support-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .support-links {
+    gap: var(--gap-5xs);
+    font-size: var(--body-regular-size);
+  }
+  .customer-support {
+    gap: var(--gap-base);
+  }
+  .qun-l-ti {
+    text-decoration: none;
+    position: relative;
+    line-height: 24px;
+    font-weight: 700;
+    color: inherit;
+    display: inline-block;
+    min-width: 125px;
+  }
+  .lch-s-mua,
+  .ly-li-mt,
+  .qun-l-gi,
+  .thay-i-thng {
+    position: relative;
+    line-height: 22px;
+    display: inline-block;
+    min-width: 112px;
+  }
+  .lch-s-mua,
+  .ly-li-mt,
+  .qun-l-gi {
+    min-width: 102px;
+  }
+  .lch-s-mua,
+  .qun-l-gi {
+    min-width: 111px;
+  }
+  .qun-l-gi {
+    min-width: 104px;
+  }
+  .account-actions,
+  .account-management {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .account-actions {
+    gap: var(--gap-5xs);
+    font-size: var(--body-regular-size);
+  }
+  .account-management {
+    gap: var(--gap-base);
+  }
+  .kt-ni-vi {
+    text-decoration: none;
+    position: relative;
+    line-height: 24px;
+    font-weight: 700;
+    color: inherit;
+  }
+  .logosfacebook-icon {
+    height: 32px;
+    width: 32px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .facebook {
+    text-decoration: none;
+    position: relative;
+    color: inherit;
+    display: inline-block;
+    min-width: 66px;
+  }
+  .platforms {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+  }
+  .icon-of-zalo-1 {
+    height: 32px;
+    width: 32px;
+    position: relative;
+    border-radius: 40.5px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .zalo {
+    text-decoration: none;
+    position: relative;
+    color: inherit;
+    display: inline-block;
+    min-width: 29px;
+  }
+  .platforms1,
+  .social-links {
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+  }
+  .platforms1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .social-links {
+    flex-direction: column;
+    font-size: var(--body-regular-size);
+    font-family: var(--font-inter);
+  }
+  .social,
+  .social-links,
+  .support {
+    display: flex;
+    align-items: flex-start;
+  }
+  .social {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+  }
+  .support {
+    width: 1193px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--h5-bold-size);
+    color: var(--color-black);
+    font-family: var(--footnote-description);
+  }
+  .chodienmay2023 {
+    position: relative;
+    line-height: 20px;
+    display: inline-block;
+    min-width: 106px;
+  }
+  .footer {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 20px;
+    box-sizing: border-box;
+    gap: 36px;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: var(--footnote-description-size);
+    color: var(--color-black);
+    font-family: var(--footnote-description);
+  }
+  @media screen and (max-width: 840px) {
+    .support {
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .footer {
+      gap: 18px;
+    }
+  }

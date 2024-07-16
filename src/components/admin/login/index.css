@@ -1,0 +1,118 @@
+.admin-login {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 20px;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 24px;
+  color: #000;
+  font-family: var(--body-regular);
+}
+
+.admin-login-child {
+  align-self: center;
+  height: 161px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.admin-login-ng-nhp-h {
+  margin: 0;
+  font-size: inherit;
+  line-height: 22px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.admin-login-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-login-inputlargenormalfalsetrue,
+.admin-login-inputlargenormalfalsetrue1 {
+  border-radius: var(--br-11xs);
+  background-color: var(--character-primaryinverse);
+  border: 1px solid var(--neutral-5);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-login-placeholder,
+.admin-login-placeholder2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-login-input-prefix-icon,
+.admin-login-input-prefix-icon1 {
+  height: 15px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.admin-login-placeholder1,
+.admin-login-placeholder3 {
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.admin-login-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Adjust gap between checkbox and label */
+  font-size: var(--body-regular-size);
+  color: var(--character-title-85);
+}
+
+.admin-login-button {
+  cursor: pointer;
+  border: 1px solid var(--primary-6);
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: var(--primary-6);
+  box-shadow: var(--drop-shadow-button-primary);
+  border-radius: var(--br-11xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Adjust gap between icon and text */
+}
+
+.admin-login-text {
+  position: relative;
+  font-size: var(--body-regular-size);
+  line-height: 22px;
+  font-family: var(--body-regular);
+  color: var(--character-primaryinverse);
+  text-align: left;
+  display: inline-block;
+  min-width: 68px; /* Adjust minimum width as needed */
+}
+
+.admin-login-input{
+  padding: 0 5px;
+  width: 350px;
+  height: 25px;
+  border: none;
+  outline: none; /* Loại bỏ đường viền và highlight khi focus */
+  background-color: transparent; /* Để input trong suốt */
+}

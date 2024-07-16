@@ -1,0 +1,110 @@
+.st-item-label {
+    position: relative;
+    line-height: 22px;
+    display: inline-block;
+    min-width: 62px;
+  }
+  .st-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .separator {
+    position: relative;
+    line-height: 22px;
+    display: inline-block;
+    min-width: 6px;
+  }
+  .componentsseparator {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 8px;
+  }
+  .last-item-label {
+    position: relative;
+    line-height: 22px;
+    display: inline-block;
+    min-width: 107px;
+    font-style: bold;
+  }
+  .breadcrumb,
+  .last-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .last-item {
+    color: var(--character-title-85);
+  }
+  .breadcrumb {
+    overflow: hidden;
+  }
+  .title {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 28px;
+    font-weight: 500;
+    font-family: inherit;
+    /* font-style: bold; */
+  }
+  .wrapper {
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+  }
+  .heading-left,
+  .page-header,
+  .wrapper {
+    display: flex;
+    justify-content: flex-start;
+    
+  }
+  .heading-left {
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 0 6px;
+    font-size: var(--h4-medium-size);
+    color: var(--character-title-85);
+  }
+  .page-header {
+    position: relative;
+    background-color: var(--neutral-1);
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-base) 0px var(--padding-base) 24px;
+    box-sizing: border-box;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    font-size: var(--body-regular-size);
+    color: var(--character-secondary-45);
+    font-family: var(--h4-medium);
+  }
+  @media screen and (max-width: 625px) {
+    .page-header {
+      padding-right: 508px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .page-header {
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+  }
+
+.edit-form{
+  margin-left: 25px;
+}
