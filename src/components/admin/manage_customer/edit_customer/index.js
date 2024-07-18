@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import moment from 'moment';
 
 import './global.css'; // Đảm bảo import các file CSS
 import './index.css';
@@ -18,7 +19,7 @@ const EditCustomerForm = () => {
         email: '',
         gender: '',
         birthdate: today,
-        imageUrl: '',
+        imageUrl: '', // Store the image as base64 text
         address: '',
         country: '',
         city: '',
@@ -29,17 +30,56 @@ const EditCustomerForm = () => {
     });
 
     useEffect(() => {
-        // Fetch the customer data by ID and set the form fields
         const fetchCustomerData = async () => {
             try {
-                const response = await fetch(`http://localhost:9090/admin/customer/${id}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    setFormData({
-                        ...data,
-                        birthdate: data.birthdate.split('T')[0] // Ensure date is in YYYY-MM-DD format
-                        // email: data.user_id.email
+                const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
+
+                const customerResponse = await fetch(`http://localhost:9090/admin/customer/${id}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Include the Authorization header
+                    }
+                });
+
+                if (customerResponse.ok) {
+                    const customerData = await customerResponse.json();
+
+                    setFormData(prevState => ({
+                        ...prevState,
+                        name: customerData.name,
+                        phone: customerData.phone,
+                        email: customerData.user.email,
+                        userName: customerData.user.userName,
+                        birthdate: moment(customerData.birthdate).format('YYYY-MM-DD'),
+                        imageUrl: customerData.imageUrl, // Set the image URL from fetched data
+                        gender: customerData.gender
+                    }));
+
+                    // Set image preview URL
+                    setImagePreviewUrl(customerData.imageUrl);
+
+                    // Fetch customer address
+                    const addressResponse = await fetch(`http://localhost:9090/admin/customer-address/${id}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
                     });
+
+                    if (addressResponse.ok) {
+                        const addressData = await addressResponse.json();
+                        setFormData(prevState => ({
+                            ...prevState,
+                            address: addressData.address,
+                            commune: addressData.commune,
+                            district: addressData.district,
+                            city: addressData.city,
+                            country: addressData.country,
+
+                        }));
+                    } else {
+                        alert('Failed to fetch customer address.');
+                    }
                 } else {
                     alert('Failed to fetch customer data.');
                 }
@@ -56,17 +96,38 @@ const EditCustomerForm = () => {
         e.preventDefault();
 
         try {
+            const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
+
+            // Create a FormData object to send the image and other form data
+            const formDataObj = new FormData();
+            formDataObj.append('name', formData.name);
+            formDataObj.append('phone', formData.phone);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('userName', formData.userName);
+            formDataObj.append('password', formData.password);
+            formDataObj.append('gender', formData.gender);
+            formDataObj.append('birthdate', formData.birthdate);
+            formDataObj.append('address', formData.address);
+            formDataObj.append('country', formData.country);
+            formDataObj.append('city', formData.city);
+            formDataObj.append('district', formData.district);
+            formDataObj.append('commune', formData.commune);
+            if (formData.imageUrl) {
+                formDataObj.append('imageUrl', formData.imageUrl);
+            }
+
             const response = await fetch(`http://localhost:9090/admin/edit-customer/${id}`, {
                 method: 'PUT', // Use PUT method for updating data
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Authorization': `Bearer ${token}` // Include the Authorization header
                 },
-                body: JSON.stringify(formData)
+                body: formDataObj // Send form data including imageUrl
             });
 
             if (response.ok) {
                 alert('Customer updated successfully!');
-                navigate('/admin/list-customer');
+                navigate("/admin/list-customer");
+                // Redirect or navigate to another page after successful update
             } else {
                 alert('Failed to update customer.');
             }
@@ -75,7 +136,6 @@ const EditCustomerForm = () => {
             alert('Failed to update customer. Please try again later.');
         }
     };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -98,6 +158,22 @@ const EditCustomerForm = () => {
         }));
     };
 
+    const [imagePreviewUrl, setImagePreviewUrl] = useState(ic_image_profile);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({ ...formData, imageUrl: file });
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImagePreviewUrl(reader.result);
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
+
     return (
         <form className="edit-customer-page" onSubmit={handleSubmit}>
             <div className="edit-customer-nh-i-din-parent">
@@ -108,7 +184,7 @@ const EditCustomerForm = () => {
                             className="edit-customer-aspect-ratio-keeper-addition"
                             loading="lazy"
                             alt=""
-                            src={ic_image_profile}
+                            src={imagePreviewUrl} // Use the preview URL for the image src
                         />
                     </div>
                     <div className="edit-customer-upload">
@@ -119,9 +195,15 @@ const EditCustomerForm = () => {
                                 alt=""
                                 src={ic_upload}
                             />
-
                             <div className="edit-customer-upload-label">Chọn ảnh đại diện</div>
                         </div>
+                        <input
+                            name='imageUrl'
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            // required // optional, if the image is required
+                        />
                     </div>
                 </div>
             </div>
@@ -264,169 +346,182 @@ const EditCustomerForm = () => {
                         className="edit-customer-select"
                         value={formData.gender}
                         onChange={handleGenderChange}
+                        required
                     >
                         <option value="">Chọn giới tính</option>
-                        <option value="male">Nam</option>
-                        <option value="female">Nữ</option>
-                        <option value="other">Khác</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
                     </select>
                 </div>
+
                 <div className="edit-customer-vertical-form-iteminput4">
                     <div className="edit-customer-label4">
-                        <div className="edit-customer-title4">Ngày sinh</div>
+                        <div className="edit-customer-title5">Ngày sinh</div>
                     </div>
-                    <input
-                        className="edit-customer-datepicker"
-                        name="birthdate"
-                        type="date"
-                        value={formData.birthdate}
-                        onChange={handleBirthdateChange}
-                    />
-                </div>
-            </div>
-            <div className="edit-customer-vertical-form-iteminput5">
-                <div className="edit-customer-label5">
-                    <div className="edit-customer-title5">Ảnh đại diện</div>
-                </div>
-                <div className="edit-customer-input6">
-                    <div className="edit-customer-input-addonlabel3">
-                        <div className="edit-customer-wrapper3">
-                            <div className="edit-customer-text3">http://</div>
+                    <div className="edit-customer-date-picker">
+                        <div className="edit-customer-input6">
+                            <input
+                                name="birthdate"
+                                className="edit-customer-placeholder-left"
+                                placeholder="Chọn ngày sinh"
+                                type="date"
+                                min="1930-01-01"
+                                max={today}
+                                onChange={handleBirthdateChange}
+                                value={formData.birthdate}
+                                required // Bắt buộc nhập
+                            />
+
+                            <img className="edit-customer-union-icon" alt="" src="./public/union.svg" />
                         </div>
                     </div>
-                    <div className="edit-customer-input7">
-                        <img
-                            className="edit-customer-input-prefix-icon3"
-                            alt=""
-                            src="./public/inputprefix@2x.png"
-                        />
-
-                        <input
-                            className="edit-customer-placeholder3"
-                            name="imageUrl"
-                            value={formData.imageUrl}
-                            onChange={handleChange}
-                            placeholder="Nhập URL ảnh đại diện"
-                            type="text"
-                        />
-
-                        <img
-                            className="edit-customer-input-suffix-icon3"
-                            alt=""
-                            src="./public/inputsuffix@2x.png"
-                        />
-                    </div>
-                    <div className="edit-customer-input-addonicon3">
-                        <img
-                            className="edit-customer-icon-wrapper3"
-                            alt=""
-                            src="./public/iconwrapper-3@2x.png"
-                        />
-                    </div>
                 </div>
+
             </div>
-            <div className="edit-customer-vertical-form-iteminput-group1">
+
+            <div className="edit-customer-a-ch">Địa chỉ</div>
+            <div className="edit-customer-vertical-form-iteminput-container">
+                <div className="edit-customer-vertical-form-iteminput5">
+                    <div className="edit-customer-label5">
+                        <div className="edit-customer-div">*</div>
+                        <div className="edit-customer-title6">Tỉnh / Thành phố</div>
+                    </div>
+                    <select
+                        name="city"
+                        className="edit-customer-select1"
+                        onChange={handleChange}
+                        value={formData.city}
+                        required // Bắt buộc nhập
+                    >
+                        <option value="">Chọn Tỉnh / Thành phố</option>
+                        {/* Thêm các option cho tỉnh/thành phố */}
+                        <option value="HaNoi">Hà Nội</option>
+                        <option value="HCM">TP. Hồ Chí Minh</option>
+                        {/* ... */}
+                    </select>
+                </div>
                 <div className="edit-customer-vertical-form-iteminput6">
                     <div className="edit-customer-label6">
-                        <div className="edit-customer-title6">Địa chỉ</div>
+                        <div className="edit-customer-div1">*</div>
+                        <div className="edit-customer-title8">Quận / Huyện</div>
                     </div>
-                    <input
-                        className="edit-customer-placeholder4"
-                        name="address"
-                        value={formData.address}
+                    <select
+                        name="district"
+                        className="edit-customer-select1"
                         onChange={handleChange}
-                        placeholder="Nhập địa chỉ"
-                        type="text"
-                    />
+                        value={formData.district}
+                        required // Bắt buộc nhập
+                    >
+                        <option value="">Chọn Quận / Huyện</option>
+                        {/* Thêm các option cho quận/huyện */}
+                        <option value="Quan1">Quận 1</option>
+                        <option value="Quan2">Quận 2</option>
+                        <option value="Quan3">Quận 3</option>
+                        {/* ... */}
+                    </select>
                 </div>
-                <div className="edit-customer-vertical-form-iteminput7">
-                    <div className="edit-customer-label7">
-                        <div className="edit-customer-title7">Quốc gia</div>
-                    </div>
-                    <input
-                        className="edit-customer-placeholder5"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleChange}
-                        placeholder="Nhập quốc gia"
-                        type="text"
-                    />
+            </div>
+            <div className="edit-customer-vertical-form-iteminput7">
+                <div className="edit-customer-label7">
+                    <div className="edit-customer-div2">*</div>
+                    <div className="edit-customer-title10">Xã / Phường</div>
                 </div>
+                <select
+                    name="commune"
+                    className="edit-customer-select1"
+                    onChange={handleChange}
+                    value={formData.commune}
+                    required // Bắt buộc nhập
+                >
+                    <option value="">Chọn Xã / Phường</option>
+                    {/* Thêm các option cho xã/phường */}
+                    <option value="Phuong1">Phường 1</option>
+                    <option value="Phuong2">Phường 2</option>
+                    <option value="Phuong3">Phường Phạm Ngũ Lão</option>
+                    {/* ... */}
+                </select>
+            </div>
+            <div className="edit-customer-vertical-form-iteminput-wrapper">
                 <div className="edit-customer-vertical-form-iteminput8">
                     <div className="edit-customer-label8">
-                        <div className="edit-customer-title8">Thành phố</div>
+                        <div className="edit-customer-div3">*</div>
+                        <div className="edit-customer-title12">Địa chỉ chi tiết</div>
                     </div>
                     <input
-                        className="edit-customer-placeholder6"
-                        name="city"
-                        value={formData.city}
+                        name="address"
+                        className="edit-customer-select4"
+                        placeholder="Số nhà, tên ngõ, ngách, đường,..."
                         onChange={handleChange}
-                        placeholder="Nhập thành phố"
-                        type="text"
+                        value={formData.address}
+                        required // Bắt buộc nhập
                     />
                 </div>
             </div>
-            <div className="edit-customer-vertical-form-iteminput-group2">
+            <div className="edit-customer-frame-div">
                 <div className="edit-customer-vertical-form-iteminput9">
                     <div className="edit-customer-label9">
-                        <div className="edit-customer-title9">Quận</div>
+                        <div className="edit-customer-div4">*</div>
+                        <div className="edit-customer-title14">Tên tài khoản</div>
                     </div>
-                    <input
-                        className="edit-customer-placeholder7"
-                        name="district"
-                        value={formData.district}
-                        onChange={handleChange}
-                        placeholder="Nhập quận"
-                        type="text"
-                    />
+                    <div className="edit-customer-input7">
+                        <div className="edit-customer-input-addonlabel3">
+                            <div className="edit-customer-wrapper3">
+                                <div className="edit-customer-text3">http://</div>
+                            </div>
+                        </div>
+                        <div className="edit-customer-input8">
+                            <img className="edit-customer-input-prefix-icon3" alt="" src="./public/inputprefix@2x.png" />
+                            <input
+                                name="userName"
+                                className="edit-customer-placeholder3"
+                                placeholder="Nhập tên tài khoản"
+                                type="text"
+                                onChange={handleChange}
+                                value={formData.userName}
+                                required // Bắt buộc nhập
+                            />
+                            <img className="edit-customer-input-suffix-icon3" alt="" src="./public/inputsuffix@2x.png" />
+                        </div>
+                        <div className="edit-customer-input-addonicon3">
+                            <img className="edit-customer-icon-wrapper3" alt="" src="./public/iconwrapper-3@2x.png" />
+                        </div>
+                    </div>
                 </div>
                 <div className="edit-customer-vertical-form-iteminput10">
                     <div className="edit-customer-label10">
-                        <div className="edit-customer-title10">Phường</div>
+                        <div className="edit-customer-title15">Mật khẩu</div>
                     </div>
-                    <input
-                        className="edit-customer-placeholder8"
-                        name="commune"
-                        value={formData.commune}
-                        onChange={handleChange}
-                        placeholder="Nhập phường"
-                        type="text"
-                    />
-                </div>
-            </div>
-            <div className="edit-customer-vertical-form-iteminput-group3">
-                <div className="edit-customer-vertical-form-iteminput11">
-                    <div className="edit-customer-label11">
-                        <div className="edit-customer-title11">Tên tài khoản</div>
+                    <div className="edit-customer-input9">
+                        <div className="edit-customer-input-addonlabel4">
+                            <div className="edit-customer-wrapper4">
+                                <div className="edit-customer-text4">http://</div>
+                            </div>
+                        </div>
+                        <div className="edit-customer-input10">
+                            <img className="edit-customer-input-prefix-icon4" alt="" src="./public/inputprefix@2x.png" />
+                            <input
+                                name="password"
+                                className="edit-customer-placeholder4"
+                                placeholder="Nhập để cập nhật mật khẩu mới"
+                                type="password"
+                                onChange={handleChange}
+                                value={formData.password}
+                                required // Bắt buộc nhập
+                            />
+                            <img className="edit-customer-input-suffix-icon4" alt="" src="./public/inputsuffix@2x.png" />
+                        </div>
+                        <div className="edit-customer-input-addonicon4">
+                            <img className="edit-customer-icon-wrapper4" alt="" src="./public/iconwrapper-4@2x.png" />
+                        </div>
                     </div>
-                    <input
-                        className="edit-customer-placeholder9"
-                        name="userName"
-                        value={formData.userName}
-                        onChange={handleChange}
-                        placeholder="Nhập tên tài khoản"
-                        type="text"
-                    />
-                </div>
-                <div className="edit-customer-vertical-form-iteminput12">
-                    <div className="edit-customer-label12">
-                        <div className="edit-customer-title12">Mật khẩu</div>
-                    </div>
-                    <input
-                        className="edit-customer-placeholder10"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Nhập mật khẩu"
-                        type="password"
-                    />
                 </div>
             </div>
             <div className="edit-customer-form-actions">
-                <button type="submit" className="edit-customer-buttonmediumprimary">
-                    Lưu thông tin
+                <button type="submit" className="edit-customer-button">
+                    Lưu
                 </button>
-                <button type="button" className="edit-customer-buttonmediumsecondary" onClick={() => navigate('/admin/list-customer')}>
+                <button type="button" className="edit-customer-button2" onClick={() => navigate('/admin/list-customer')}>
                     Hủy bỏ
                 </button>
             </div>

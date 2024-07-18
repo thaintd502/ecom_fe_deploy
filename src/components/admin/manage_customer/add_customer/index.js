@@ -32,33 +32,46 @@ const ProfileForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error('No token found');
+            const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
+
+            // Create a FormData object to send the image and other form data
+            const formDataObj = new FormData();
+            formDataObj.append('name', formData.name);
+            formDataObj.append('phone', formData.phone);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('userName', formData.userName);
+            formDataObj.append('password', formData.password);
+            formDataObj.append('gender', formData.gender);
+            formDataObj.append('birthdate', formData.birthdate);
+            formDataObj.append('address', formData.address);
+            formDataObj.append('country', formData.country);
+            formDataObj.append('city', formData.city);
+            formDataObj.append('district', formData.district);
+            formDataObj.append('commune', formData.commune);
+            if (formData.imageUrl) {
+                formDataObj.append('imageUrl', formData.imageUrl);
             }
-    
-            const response = await fetch('http://localhost:9090/admin/signup-customer', {
-                method: 'POST',
+
+            const response = await fetch(`http://localhost:9090/admin/signup-customer`, {
+                method: 'POST', // Use PUT method for updating data
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Thêm token vào headers
+                    'Authorization': `Bearer ${token}` // Include the Authorization header
                 },
-                body: JSON.stringify(formData)
+                body: formDataObj // Send form data including imageUrl
             });
-    
+
             if (response.ok) {
-                alert('Customer signed up successfully!');
-                navigate('/admin/list-customer');
-                // Optionally, redirect to another page or handle success
+                alert('Customer updated successfully!');
+                navigate("/admin/list-customer");
+                // Redirect or navigate to another page after successful update
             } else {
-                alert('Failed to sign up customer.');
-                // Handle error scenarios
+                alert('Failed to update customer.');
             }
         } catch (error) {
-            console.error('Error signing up customer:', error);
-            alert('Failed to sign up customer. Please try again later.');
+            console.error('Error updating customer:', error);
+            alert('Failed to update customer. Please try again later.');
         }
     };
     
@@ -84,38 +97,54 @@ const ProfileForm = () => {
             birthdate: e.target.value // Cập nhật giá trị ngày sinh từ form
         }));
     };
-    // const handleDateChange = (date) => {
-    //     setFormData(prevState => ({
-    //         ...prevState,
-    //         birthdate: date
-    //     }));
-    // };
+   
+    
+    const [imagePreviewUrl, setImagePreviewUrl] = useState(ic_image_profile);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({ ...formData, imageUrl: file });
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImagePreviewUrl(reader.result);
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
 
     return (
 
         <form class="add-customer-page" onSubmit={handleSubmit}>
-            <div className="add-customer-nh-i-din-parent">
-                <a className="add-customer-nh-i-din">Ảnh đại diện</a>
-                <div className="add-customer-image-uploader">
-                    <div className="add-customer-image">
+        <div className="edit-customer-nh-i-din-parent">
+                <a className="edit-customer-nh-i-din">Ảnh đại diện</a>
+                <div className="edit-customer-image-uploader">
+                    <div className="edit-customer-image">
                         <img
-                            className="add-customer-aspect-ratio-keeper-addition"
+                            className="edit-customer-aspect-ratio-keeper-addition"
                             loading="lazy"
                             alt=""
-                            src={ic_image_profile}
+                            src={imagePreviewUrl} // Use the preview URL for the image src
                         />
                     </div>
-                    <div className="add-customer-upload">
-                        <div className="add-customer-buttonmediumstandardseconda">
+                    <div className="edit-customer-upload">
+                        <div className="edit-customer-buttonmediumstandardseconda">
                             <img
-                                className="add-customer-upload-icon"
+                                className="edit-customer-upload-icon"
                                 loading="lazy"
                                 alt=""
                                 src={ic_upload}
                             />
-
-                            <div className="add-customer-upload-label">Chọn ảnh đại diện</div>
+                            <div className="edit-customer-upload-label">Chọn ảnh đại diện</div>
                         </div>
+                        <input
+                            name='imageUrl'
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required // optional, if the image is required
+                        />
                     </div>
                 </div>
             </div>

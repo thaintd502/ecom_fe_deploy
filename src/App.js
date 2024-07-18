@@ -5,7 +5,7 @@ import AdminLogin from './components/admin/login/index';
 import AdminHome from './components/admin/home';
 import UserLogin from './components/user/login';
 import PrivateRoute from './components/PrivateRoute';
-
+import ImageUpload from './components/test';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/admin/login" element={<AdminLogin></AdminLogin>} />
           <Route path="/user/login" element={<UserLogin></UserLogin>} />
+          <Route path="/upload" element={<ImageUpload></ImageUpload>} />
 
           <Route
             path="/admin/*"
@@ -27,10 +28,6 @@ function App() {
               </PrivateRoute>
             }
           />
-
- 
-
-       
 
         </Routes>
 

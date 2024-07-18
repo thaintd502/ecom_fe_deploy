@@ -1408,10 +1408,10 @@
     display: inline-block;
     min-width: 24px;
   }
-  .edit-customer-button {
+  .edit-customer-button{
     cursor: pointer;
     border: 1px solid var(--primary-6);
-    padding: var(--padding-10xs) 48px;
+    /* padding: var(--padding-10xs) 48px; */
     background-color: var(--primary-6);
     box-shadow: var(--drop-shadow-button-primary);
     border-radius: var(--br-11xs);
@@ -1421,6 +1421,29 @@
     align-items: center;
     justify-content: center;
     gap: var(--gap-5xs);
+    height: 30px; 
+    width: 100px;
+    color: aliceblue;
+    font-style: bold;
+  }
+  .edit-customer-button2{
+    cursor: pointer;
+    border: 1px solid var(--primary-6);
+    /* padding: var(--padding-10xs) 48px; */
+    background-color: var(--primary-6);
+    box-shadow: var(--drop-shadow-button-primary);
+    border-radius: var(--br-11xs);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-5xs);
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    color: aliceblue;
+    font-style: bold;
   }
   .edit-customer-page {
     margin: 0;
