@@ -13,6 +13,8 @@ import AddAccount from '../manage_account/add_account/form';
 import EditAccount from '../manage_account/edit_account/form';
 import AddCustomer from '../manage_customer/add_customer/index';
 import EditCustomer from '../manage_customer/edit_customer';
+import Orderlist from '../manage_order/list_order';
+import BillDetails from '../manage_order/bill_detail/page';
 
 const Home = () => {
     return ( 
@@ -29,12 +31,14 @@ const Home = () => {
                     <PageNavigate/>
 
                     <Routes>
-                        <Route path="home" element={<ListAccount />} />
-                        <Route path="list-customer" element={<CustomerList />} />
+                        <Route path="/home" element={<ListAccount />} />
+                        <Route path="/list-customer" element={<CustomerList />} />
                         <Route path="/add-account" element={<AddAccount />} />
                         <Route path="/edit/:userId" element={<EditAccount />} />
                         <Route path="/add-customer" element={<AddCustomer />} />
                         <Route path="/edit-customer/:id" element={<EditCustomer />} />
+                        <Route path="/list-order" element={<Orderlist />} />
+                        <Route path="/bill-details/:orderId" element={<BillDetails />} />
 
                     </Routes>
                 </div>

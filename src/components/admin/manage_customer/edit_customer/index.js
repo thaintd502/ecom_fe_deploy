@@ -220,11 +220,6 @@ const EditCustomerForm = () => {
                             </div>
                         </div>
                         <div className="edit-customer-input1">
-                            <img
-                                className="edit-customer-input-prefix-icon"
-                                alt=""
-                                src="./public/inputprefix@2x.png"
-                            />
 
                             <input
                                 className="edit-customer-placeholder"
@@ -236,19 +231,8 @@ const EditCustomerForm = () => {
                                 required
                             />
 
-                            <img
-                                className="edit-customer-input-suffix-icon"
-                                alt=""
-                                src="./public/inputsuffix@2x.png"
-                            />
                         </div>
-                        <div className="edit-customer-input-addonicon">
-                            <img
-                                className="edit-customer-icon-wrapper"
-                                alt=""
-                                src="./public/iconwrapper@2x.png"
-                            />
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="edit-customer-vertical-form-iteminput1">
@@ -263,11 +247,6 @@ const EditCustomerForm = () => {
                             </div>
                         </div>
                         <div className="edit-customer-input3">
-                            <img
-                                className="edit-customer-input-prefix-icon1"
-                                alt=""
-                                src="./public/inputprefix@2x.png"
-                            />
 
                             <input
                                 className="edit-customer-placeholder1"
@@ -278,20 +257,8 @@ const EditCustomerForm = () => {
                                 type="text"
                                 required
                             />
-
-                            <img
-                                className="edit-customer-input-suffix-icon1"
-                                alt=""
-                                src="./public/inputsuffix@2x.png"
-                            />
                         </div>
-                        <div className="edit-customer-input-addonicon1">
-                            <img
-                                className="edit-customer-icon-wrapper1"
-                                alt=""
-                                src="./public/iconwrapper-1@2x.png"
-                            />
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="edit-customer-vertical-form-iteminput2">
@@ -305,11 +272,6 @@ const EditCustomerForm = () => {
                             </div>
                         </div>
                         <div className="edit-customer-input5">
-                            <img
-                                className="edit-customer-input-prefix-icon2"
-                                alt=""
-                                src="./public/inputprefix@2x.png"
-                            />
 
                             <input
                                 className="edit-customer-placeholder2"
@@ -321,19 +283,8 @@ const EditCustomerForm = () => {
                                 required
                             />
 
-                            <img
-                                className="edit-customer-input-suffix-icon2"
-                                alt=""
-                                src="./public/inputsuffix@2x.png"
-                            />
                         </div>
-                        <div className="edit-customer-input-addonicon2">
-                            <img
-                                className="edit-customer-icon-wrapper2"
-                                alt=""
-                                src="./public/iconwrapper-2@2x.png"
-                            />
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -438,7 +389,7 @@ const EditCustomerForm = () => {
                     {/* Thêm các option cho xã/phường */}
                     <option value="Phuong1">Phường 1</option>
                     <option value="Phuong2">Phường 2</option>
-                    <option value="Phuong3">Phường Phạm Ngũ Lão</option>
+                    <option value="Phường Phạm Ngũ Lão">Phường Phạm Ngũ Lão</option>
                     {/* ... */}
                 </select>
             </div>
@@ -471,7 +422,6 @@ const EditCustomerForm = () => {
                             </div>
                         </div>
                         <div className="edit-customer-input8">
-                            <img className="edit-customer-input-prefix-icon3" alt="" src="./public/inputprefix@2x.png" />
                             <input
                                 name="userName"
                                 className="edit-customer-placeholder3"
@@ -481,11 +431,8 @@ const EditCustomerForm = () => {
                                 value={formData.userName}
                                 required // Bắt buộc nhập
                             />
-                            <img className="edit-customer-input-suffix-icon3" alt="" src="./public/inputsuffix@2x.png" />
                         </div>
-                        <div className="edit-customer-input-addonicon3">
-                            <img className="edit-customer-icon-wrapper3" alt="" src="./public/iconwrapper-3@2x.png" />
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="edit-customer-vertical-form-iteminput10">
@@ -499,7 +446,6 @@ const EditCustomerForm = () => {
                             </div>
                         </div>
                         <div className="edit-customer-input10">
-                            <img className="edit-customer-input-prefix-icon4" alt="" src="./public/inputprefix@2x.png" />
                             <input
                                 name="password"
                                 className="edit-customer-placeholder4"
@@ -509,10 +455,6 @@ const EditCustomerForm = () => {
                                 value={formData.password}
                                 required // Bắt buộc nhập
                             />
-                            <img className="edit-customer-input-suffix-icon4" alt="" src="./public/inputsuffix@2x.png" />
-                        </div>
-                        <div className="edit-customer-input-addonicon4">
-                            <img className="edit-customer-icon-wrapper4" alt="" src="./public/iconwrapper-4@2x.png" />
                         </div>
                     </div>
                 </div>

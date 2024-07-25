@@ -123,10 +123,17 @@
 .table{
 
   display: flex;
-  width: 100%;
-  margin-left: 8px;
+  /* width: 100%; */
+  /* padding-left: 8px; */
+  padding-left: 20px;
+  padding-right: 20px;
 
 
+}
+
+.order-detail-list-product-title{
+  margin-top: 30px;
+  padding-left: 20px;
 }
 /* .table-user{
  width: 100%;

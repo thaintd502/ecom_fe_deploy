@@ -39,7 +39,12 @@ const Sider = () => {
     // Đánh dấu menu active
     setActiveMenuItem(false); // Nếu muốn đánh dấu active khi click vào "Quản lý khách hàng"
   };
-  
+
+  const handleOrderManagementClick = () => {
+    navigate('/admin/list-order');
+    setActiveMenuItem(false);
+  };
+
 
   return (
     <div className="slider-siderdefault">
@@ -138,23 +143,41 @@ const Sider = () => {
           </div>
 
           <div
-        className="slider-inline-menu-itemtop-levelleg5"
-        onClick={handleCustomerManagementClick}
-      >
-        <div className="slider-inner-wrapper5">
-          <div className="slider-title-wrapper5">
-            <div className="slider-icon-wrapper-wrapper2">
-              <img
-                className="slider-icon-wrapper5"
-                loading="lazy"
-                alt=""
-                src={ic_user}
-              />
+            className="slider-inline-menu-itemtop-levelleg5"
+            onClick={handleCustomerManagementClick}
+          >
+            <div className="slider-inner-wrapper5">
+              <div className="slider-title-wrapper5">
+                <div className="slider-icon-wrapper-wrapper2">
+                  <img
+                    className="slider-icon-wrapper5"
+                    loading="lazy"
+                    alt=""
+                    src={ic_user}
+                  />
+                </div>
+                <div className="slider-div4">Quản lý khách hàng</div>
+              </div>
             </div>
-            <div className="slider-div4">Quản lý khách hàng</div>
           </div>
-        </div>
-      </div>
+        
+          <div className="slider-inline-menu-itemtop-levelleg7"
+            onClick={handleOrderManagementClick}>
+            <div className="slider-inner-wrapper7">
+              <div className="slider-title-wrapper7">
+                <div className="slider-icon-wrapper-wrapper4">
+                  <img
+                    className="slider-icon-wrapper7"
+                    loading="lazy"
+                    alt=""
+                    src={ic_order}
+                  />
+                </div>
+                <div className="slider-title1">Quản lý đơn hàng</div>
+              </div>
+            </div>
+          </div>
+
           <div className="slider-inline-menu-itemtop-levelleg6">
             <div className="slider-parent">
               <div className="slider-inner-wrapper6">
@@ -179,28 +202,8 @@ const Sider = () => {
                 </div>
               </div>
             </div>
-            {/* <textarea
-              className="slider-submenu"
-              placeholder="Quản lý danh mục bài viết"
-              rows={4}
-              cols={10}
-            ></textarea> */}
           </div>
-          <div className="slider-inline-menu-itemtop-levelleg7">
-            <div className="slider-inner-wrapper7">
-              <div className="slider-title-wrapper7">
-                <div className="slider-icon-wrapper-wrapper4">
-                  <img
-                    className="slider-icon-wrapper7"
-                    loading="lazy"
-                    alt=""
-                    src={ic_order}
-                  />
-                </div>
-                <div className="slider-title1">Quản lý đơn hàng</div>
-              </div>
-            </div>
-          </div>
+          
           <div className="slider-inline-menu-itemtop-levelleg8">
             <div className="slider-inner-wrapper8">
               <div className="slider-title-wrapper8">

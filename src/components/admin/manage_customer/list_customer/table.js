@@ -56,20 +56,6 @@ const CustomerList = () => {
     fetchCustomers();
   }, []);
 
-  // const handleDelete = (customerId) => {
-  //   if (window.confirm('Bạn có chắc chắn muốn xóa khách hàng này không?')) {
-  //     axios.delete(`http://localhost:9090/admin/delete-customer/${customerId}`)
-  //       .then(response => {
-  //         if (response.status === 200) {
-  //           setCustomers(customers.filter(customer => customer.customerId !== customerId));
-  //           setFilteredCustomers(filteredCustomers.filter(customer => customer.customerId !== customerId));
-  //         }
-  //       })
-  //       .catch(error => {
-  //         console.error('Có lỗi xảy ra khi xóa khách hàng:', error);
-  //       });
-  //   }
-  // };
 
   const handleDelete = async (customerId) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa khách hàng này không?')) {
@@ -80,14 +66,7 @@ const CustomerList = () => {
       }
 
       try {
-        // // Xóa địa chỉ của khách hàng
-        // await axios.delete(`http://localhost:9090/admin/delete-customer-address/${customerId}`, {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // });
-
-        // Xóa khách hàng
+      
         await axios.delete(`http://localhost:9090/admin/delete-customer/${customerId}`, {
           headers: {
             Authorization: `Bearer ${token}`,

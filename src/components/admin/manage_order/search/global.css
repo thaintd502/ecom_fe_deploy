@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --body-regular: Roboto;
+  
+    /* font sizes */
+    --body-regular-size: 14px;
+    --h5-medium-size: 16px;
+  
+    /* Colors */
+    --neutral-1: #fff;
+    --neutral-5: #d9d9d9;
+    --neutral-2: #fafafa;
+    --color-gray-100: rgba(0, 0, 0, 0.25);
+    --hitbox: rgba(255, 255, 255, 0);
+    --character-title-85: rgba(0, 0, 0, 0.85);
+    --color-black: #000;
+  
+    /* Gaps */
+    --gap-base: 16px;
+    --gap-5xs: 8px;
+    --gap-9xs: 4px;
+  
+    /* Paddings */
+    --padding-10xs: 3px;
+    --padding-6xs: 7px;
+    --padding-2xs: 11px;
+    --padding-xs: 12px;
+    --padding-8xs: 5px;
+    --padding-9xs: 4px;
+    --padding-12xs: 1px;
+    --padding-base: 16px;
+  
+    /* Border radiuses */
+    --br-11xs: 2px;
+  
+    /* Effects */
+    --drop-shadow-button-secondary: 0px 2px 0px rgba(0, 0, 0, 0.02);
+  }
