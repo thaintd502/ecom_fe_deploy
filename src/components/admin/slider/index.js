@@ -45,6 +45,12 @@ const Sider = () => {
     setActiveMenuItem(false);
   };
 
+  const handleProductManagementClick = () => {
+    navigate('/admin/list-product');
+    setActiveMenuItem(false);
+  };
+
+
 
   return (
     <div className="slider-siderdefault">
@@ -69,7 +75,7 @@ const Sider = () => {
               </div>
             </div>
           </div>
-          <div className="slider-inline-menu-itemtop-levelleg1">
+          {/* <div className="slider-inline-menu-itemtop-levelleg1">
             <div className="slider-inner-wrapper1">
               <div className="slider-title-wrapper1">
                 <div className="slider-icon-wrapper-container">
@@ -83,8 +89,10 @@ const Sider = () => {
                 <div className="slider-div">Quản lý danh mục</div>
               </div>
             </div>
-          </div>
-          <div className="slider-inline-menu-itemtop-levelleg2">
+          </div> */}
+          <div className="slider-inline-menu-itemtop-levelleg2"
+                onClick={handleProductManagementClick}
+          >
             <div className="slider-inner-wrapper2">
               <div className="slider-title-wrapper2">
                 <div className="slider-icon-wrapper-frame">
@@ -178,7 +186,7 @@ const Sider = () => {
             </div>
           </div>
 
-          <div className="slider-inline-menu-itemtop-levelleg6">
+          {/* <div className="slider-inline-menu-itemtop-levelleg6">
             <div className="slider-parent">
               <div className="slider-inner-wrapper6">
                 <div className="slider-title-wrapper6">
@@ -278,7 +286,7 @@ const Sider = () => {
                 <div className="slider-title6">Quản lý voucher</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="slider-sider-trigger">

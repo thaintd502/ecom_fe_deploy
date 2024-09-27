@@ -15,6 +15,9 @@ import AddCustomer from '../manage_customer/add_customer/index';
 import EditCustomer from '../manage_customer/edit_customer';
 import Orderlist from '../manage_order/list_order';
 import BillDetails from '../manage_order/bill_detail/page';
+import ProductList from '../manage_product/list_product';
+import AddProduct from '../manage_product/add_product';
+import EditProduct from '../manage_product/edit_product';
 
 const Home = () => {
     return ( 
@@ -28,7 +31,7 @@ const Home = () => {
                 </div>
                 <div className="header-container-home">
 
-                    <PageNavigate/>
+                    {/* <PageNavigate/> */}
 
                     <Routes>
                         <Route path="/home" element={<ListAccount />} />
@@ -39,6 +42,11 @@ const Home = () => {
                         <Route path="/edit-customer/:id" element={<EditCustomer />} />
                         <Route path="/list-order" element={<Orderlist />} />
                         <Route path="/bill-details/:orderId" element={<BillDetails />} />
+                        <Route path="/list-product" element={<ProductList />} />
+                        <Route path="/add-product" element={<AddProduct />} />
+                        <Route path="/edit-product/:productId" element={<EditProduct />} />
+
+
 
                     </Routes>
                 </div>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './index.css';
 import './global.css';
-import PageNavigate from '../page_navigate';
+// import PageNavigate from '../page_navigate';
 
 const AddUserForm = () => {
   const navigate = useNavigate();

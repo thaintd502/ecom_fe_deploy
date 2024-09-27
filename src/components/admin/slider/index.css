@@ -623,7 +623,7 @@
   position: relative;
   box-shadow: var(--drop-shadow-015);
   flex-direction: column;
-  gap: 280px;
+  /* gap: 280px; */
   line-height: normal;
   letter-spacing: normal;
 }
