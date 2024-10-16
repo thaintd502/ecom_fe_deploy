@@ -78,7 +78,7 @@ const Header = () => {
             <div className="header-icon-wrapper3">
               <img className="header-wrapper-icon2" alt="" src={ic_login} />
             </div>
-            <a className="header-text2">Đăng nhập</a>
+            <a className="header-text2" href='/user/login'>Đăng nhập</a>
           </div>
         </button>
         <button className="header-button3" onClick={openModal}>

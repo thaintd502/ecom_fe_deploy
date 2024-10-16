@@ -22,7 +22,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:9090/api/v1/auth/signin', {
+      const response = await axios.post('http://34.92.164.246:9090/api/v1/auth/signin', {
         username: phone,
         password,
       });

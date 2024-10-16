@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './global.css';
 import './index.css';
 
-import ic_logo from '../../../assets/images/ic_logo_nobg.png';
+import ic_logo from '../../../assets/images/23.png';
 import ic_lock from '../../../assets/vectors/ic_lock_login.svg';
 import ic_user from '../../../assets/vectors/ic_user_login.svg';
 
@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:9090/api/v1/signin', { userName: phone, password });
+      const response = await axios.post('http://34.92.164.246:9090/api/v1/signin', { userName: phone, password });
       const { token, userName, listRoles } = response.data;
 
       localStorage.setItem('token', token);

@@ -26,13 +26,13 @@
   gap: var(--gap-xl);
 }
 .header-admin-image {
-  width: 100px;
+  width: 75px;
   height: auto;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-5xs) 0;
   box-sizing: border-box;
-  background-image: url(../../../assets/images/ic_logo_nobg.png);
+  background-image: url(../../../assets/images/23.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;

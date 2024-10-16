@@ -12,6 +12,7 @@ const EditProduct = () => {
         productCode: '',
         productName: '',
         category: '',
+        discount: 0,
         brand: '',
         importPrice: 0,
         price: 0,
@@ -29,7 +30,7 @@ const EditProduct = () => {
         const fetchProduct = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:9090/admin/product/${productId}`, {
+                const response = await axios.get(`http://34.92.164.246:9090/admin/product/${productId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -44,6 +45,7 @@ const EditProduct = () => {
                     category: product.categories[0]?.name || '',  // Lấy category đầu tiên
                     brand: product.brand.name,  // Lấy tên thương hiệu
                     importPrice: product.importPrice,
+                    discount: product.discount,
                     price: product.price,
                     promotePrice: product.promotePrice,
                     stockQuantity: product.stockQuantity,
@@ -62,12 +64,12 @@ const EditProduct = () => {
             try {
                 const token = localStorage.getItem('token');
                 const [brandsResponse, categoriesResponse] = await Promise.all([
-                    axios.get('http://localhost:9090/admin/get-all-brands', {
+                    axios.get('http://34.92.164.246:9090/admin/get-all-brands', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     }),
-                    axios.get('http://localhost:9090/admin/get-all-categories', {
+                    axios.get('http://34.92.164.246:9090/admin/get-all-categories', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -116,7 +118,7 @@ const EditProduct = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put(`http://localhost:9090/admin/edit-product/${productId}`, formData, {
+            const response = await axios.put(`http://34.92.164.246:9090/admin/edit-product/${productId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`
@@ -219,6 +221,17 @@ const EditProduct = () => {
                         type="number"
                         id="promotePrice"
                         value={productData.promotePrice}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
+
+                <div className="edit-product-form-group">
+                    <label htmlFor="discount">Khuyến mãi (%)</label>
+                    <input
+                        type="number"
+                        id="discount"
+                        value={productData.discount}
                         onChange={handleInputChange}
                         required
                     />

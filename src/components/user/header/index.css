@@ -263,6 +263,8 @@
   align-items: center;
   padding: var(--padding-10xs) var(--padding-mini);
   gap: var(--gap-5xs);
+  padding-right: 2px;
+
 }
 
 .header-button-wrapper {
@@ -350,7 +352,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--gap-5xs);
-  min-width: 81px;
+  /* min-width: 90px; */
+  /* width: 115x; */
 }
 
 .header-icon-wrapper6 {
@@ -380,7 +383,7 @@
   border: 1px solid var(--color-red);
   padding: var(--padding-10xs) var(--padding-mini);
   background-color: var(--color-red);
-  width: 99px;
+  width: 108px;
   box-shadow: var(--drop-shadow-button-primary);
   border-radius: var(--br-11xs);
   overflow: hidden;
