@@ -45,7 +45,7 @@ const AddProduct = () => {
         const fetchCategories = async () => {
             try {
                 const token = localStorage.getItem('token'); // Get token from localStorage
-                const response = await axios.get('http://34.92.164.246:9090/admin/get-all-categories', {
+                const response = await axios.get('http://34.92.164.246:9090/api/v1/get-all-categories', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

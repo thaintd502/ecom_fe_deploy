@@ -41,7 +41,7 @@ const AddUserForm = () => {
 
       console.log('Sending user data:', newUser);
 
-      const response = await axios.post('http://34.92.164.246:9090/admin/signup', newUser, {
+      const response = await axios.post('http://34.92.164.246:9090/api/v1/signup', newUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
