@@ -34,7 +34,7 @@ const EditCustomerForm = () => {
             try {
                 const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
 
-                const customerResponse = await fetch(`http://34.92.164.246:9090/admin/customer/${id}`, {
+                const customerResponse = await fetch(`http://34.92.164.246:9090/api/v1/customer/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}` // Include the Authorization header
@@ -59,7 +59,7 @@ const EditCustomerForm = () => {
                     setImagePreviewUrl(customerData.imageUrl);
 
                     // Fetch customer address
-                    const addressResponse = await fetch(`http://34.92.164.246:9090/admin/customer-address/${id}`, {
+                    const addressResponse = await fetch(`http://34.92.164.246:9090/api/v1/customer-address/${id}`, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`

@@ -30,7 +30,7 @@ const EditProduct = () => {
         const fetchProduct = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://34.92.164.246:9090/admin/product/${productId}`, {
+                const response = await axios.get(`http://34.92.164.246:9090/api/v1/product/${productId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -69,7 +69,7 @@ const EditProduct = () => {
                             Authorization: `Bearer ${token}`,
                         },
                     }),
-                    axios.get('http://34.92.164.246:9090/admin/get-all-categories', {
+                    axios.get('http://34.92.164.246:9090/api/v1/get-all-categories', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
