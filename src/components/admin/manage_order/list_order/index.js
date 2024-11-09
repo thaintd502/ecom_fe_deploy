@@ -18,7 +18,7 @@ const OrderList = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://34.92.164.246:9090/admin/get-all-orders', {
+        const response = await axios.get('http://34.92.164.246:9090/api/admin/get-all-orders', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +42,7 @@ const OrderList = () => {
         return;
       }
 
-      axios.delete(`http://34.92.164.246:9090/admin/delete-order/${orderId}`, {
+      axios.delete(`http://34.92.164.246:9090/api/admin/delete-order/${orderId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +75,7 @@ const OrderList = () => {
   };
 
   const handleStatusChange = (orderId, newStatus) => {
-    axios.put(`http://34.92.164.246:9090/admin/update-order-status/${orderId}`, { status: newStatus }, {
+    axios.put(`http://34.92.164.246:9090/api/admin/update-order-status/${orderId}`, { status: newStatus }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',

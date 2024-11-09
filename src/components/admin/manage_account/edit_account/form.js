@@ -30,7 +30,7 @@ const EditUserForm = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get(`http://34.92.164.246:9090/admin/get-user/${userId}`, {
+        const response = await axios.get(`http://34.92.164.246:9090/api/admin/get-user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -79,7 +79,7 @@ const EditUserForm = () => {
 
       console.log('Sending user data:', editedUser);
 
-      const response = await axios.put(`http://34.92.164.246:9090/admin/edit/${userId}`, editedUser, {
+      const response = await axios.put(`http://34.92.164.246:9090/api/admin/edit/${userId}`, editedUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

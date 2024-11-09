@@ -16,7 +16,7 @@ const ProductList = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://34.92.164.246:9090/api/v1/products', {
+        const response = await axios.get('http://34.92.164.246:9090/api/public/products', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -41,7 +41,7 @@ const ProductList = () => {
       }
 
       try {
-        await axios.delete(`http://34.92.164.246:9090/admin/delete-product/${productId}`, {
+        await axios.delete(`http://34.92.164.246:9090/api/admin/delete-product/${productId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

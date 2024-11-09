@@ -34,7 +34,7 @@ const EditCustomerForm = () => {
             try {
                 const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
 
-                const customerResponse = await fetch(`http://34.92.164.246:9090/api/v1/customer/${id}`, {
+                const customerResponse = await fetch(`http://34.92.164.246:9090/api/public/customer/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}` // Include the Authorization header
@@ -59,7 +59,7 @@ const EditCustomerForm = () => {
                     setImagePreviewUrl(customerData.imageUrl);
 
                     // Fetch customer address
-                    const addressResponse = await fetch(`http://34.92.164.246:9090/api/v1/customer-address/${id}`, {
+                    const addressResponse = await fetch(`http://34.92.164.246:9090/api/public/customer-address/${id}`, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
@@ -112,11 +112,11 @@ const EditCustomerForm = () => {
             formDataObj.append('city', formData.city);
             formDataObj.append('district', formData.district);
             formDataObj.append('commune', formData.commune);
-            if (formData.imageUrl) {
+            if (formData.imageUrl instanceof File) {
                 formDataObj.append('imageUrl', formData.imageUrl);
             }
 
-            const response = await fetch(`http://34.92.164.246:9090/admin/edit-customer/${id}`, {
+            const response = await fetch(`http://34.92.164.246:9090/api/public/edit-customer/${id}`, {
                 method: 'PUT', // Use PUT method for updating data
                 headers: {
                     'Authorization': `Bearer ${token}` // Include the Authorization header
@@ -453,7 +453,7 @@ const EditCustomerForm = () => {
                                 type="password"
                                 onChange={handleChange}
                                 value={formData.password}
-                                required // Bắt buộc nhập
+                                // required // Bắt buộc nhập
                             />
                         </div>
                     </div>
