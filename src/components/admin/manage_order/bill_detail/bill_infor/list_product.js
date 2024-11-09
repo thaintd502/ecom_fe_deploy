@@ -12,7 +12,7 @@ const ProductList = () => {
       try {
         const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
   
-        const orderResponse = await fetch(`http://localhost:9090/api/public/orders/${orderId}/details`, {
+        const orderResponse = await fetch(`http://34.92.164.246:9090/api/public/orders/${orderId}/details`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}` // Include the Authorization header
