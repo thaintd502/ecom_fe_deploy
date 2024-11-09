@@ -31,7 +31,7 @@ const AddProduct = () => {
         const fetchBrands = async () => {
             try {
                 const token = localStorage.getItem('token'); // Get token from localStorage
-                const response = await axios.get('http://34.92.164.246:9090/admin/get-all-brands', {
+                const response = await axios.get('http://localhost:9090/api/admin/get-all-brands', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -45,7 +45,7 @@ const AddProduct = () => {
         const fetchCategories = async () => {
             try {
                 const token = localStorage.getItem('token'); // Get token from localStorage
-                const response = await axios.get('http://34.92.164.246:9090/api/v1/get-all-categories', {
+                const response = await axios.get('http://localhost:9090/api/public/get-all-categories', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -91,7 +91,7 @@ const AddProduct = () => {
     
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://34.92.164.246:9090/admin/add-product', formData, {
+            const response = await axios.post('http://localhost:9090/api/admin/add-product', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

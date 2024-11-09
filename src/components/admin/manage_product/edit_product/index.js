@@ -30,7 +30,7 @@ const EditProduct = () => {
         const fetchProduct = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://34.92.164.246:9090/api/v1/product/${productId}`, {
+                const response = await axios.get(`http://localhost:9090/api/public/product/${productId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -64,12 +64,12 @@ const EditProduct = () => {
             try {
                 const token = localStorage.getItem('token');
                 const [brandsResponse, categoriesResponse] = await Promise.all([
-                    axios.get('http://34.92.164.246:9090/admin/get-all-brands', {
+                    axios.get('http://localhost:9090/api/admin/get-all-brands', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     }),
-                    axios.get('http://34.92.164.246:9090/api/v1/get-all-categories', {
+                    axios.get('http://localhost:9090/api/public/get-all-categories', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -108,7 +108,7 @@ const EditProduct = () => {
         formData.append('importPrice', productData.importPrice);
         formData.append('price', productData.price);
         formData.append('promotePrice', productData.promotePrice);
-        formData.append('importQuantity', productData.importQuantity);
+        // formData.append('importQuantity', productData.importQuantity);
         formData.append('description', productData.description);
 
         // Only append the image if a new one is selected
@@ -118,7 +118,7 @@ const EditProduct = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put(`http://34.92.164.246:9090/admin/edit-product/${productId}`, formData, {
+            const response = await axios.put(`http://localhost:9090/api/admin/edit-product/${productId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

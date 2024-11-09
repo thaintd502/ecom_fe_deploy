@@ -22,7 +22,7 @@ const PageHeader = () => {
         }
 
         // Gọi API để lấy danh sách người dùng
-        const response = await axios.get('http://34.92.164.246:9090/admin/get-all-users', {
+        const response = await axios.get('http://localhost:9090/api/admin/get-all-users', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +45,7 @@ const PageHeader = () => {
         return;
       }
   
-      axios.delete(`http://34.92.164.246:9090/admin/delete-user/${userId}`, {
+      axios.delete(`http://localhost:9090/api/admin/delete-user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

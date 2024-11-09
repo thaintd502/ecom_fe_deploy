@@ -19,7 +19,7 @@ const CustomerList = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://34.92.164.246:9090/admin/get-all-customers', {
+        const response = await axios.get('http://localhost:9090/api/admin/get-all-customers', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -30,7 +30,7 @@ const CustomerList = () => {
 
         // Lặp qua từng khách hàng để lấy thông tin địa chỉ
         const customersWithAddress = await Promise.all(customersData.map(async customer => {
-          const addressResponse = await axios.get(`http://34.92.164.246:9090/api/v1/customer-address/${customer.customerId}`, {
+          const addressResponse = await axios.get(`http://localhost:9090/api/public/customer-address/${customer.customerId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -67,7 +67,7 @@ const CustomerList = () => {
 
       try {
       
-        await axios.delete(`http://34.92.164.246:9090/admin/delete-customer/${customerId}`, {
+        await axios.delete(`http://localhost:9090/api/admin/delete-customer/${customerId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
