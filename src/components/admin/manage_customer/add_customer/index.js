@@ -54,7 +54,7 @@ const ProfileForm = () => {
                 formDataObj.append('imageUrl', formData.imageUrl);
             }
 
-            const response = await fetch(`http://34.92.164.246:9090/api/public/signup-customer`, {
+            const response = await fetch(`https://ecom-amwn.onrender.com/api/public/signup-customer`, {
                 method: 'POST', // Use PUT method for updating data
                 headers: {
                     'Authorization': `Bearer ${token}` // Include the Authorization header

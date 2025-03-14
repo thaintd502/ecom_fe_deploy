@@ -1,0 +1,134 @@
+/* Container chính của trang */
+.order-detail-container {
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+}
+
+/* Tiêu đề */
+.order-detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Thông tin đơn hàng */
+.order-detail-info {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #ff5722;
+}
+
+.order-detail-date {
+    font-size: 14px;
+    color: #555;
+}
+
+.order-detail-status {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.order-detail-status.pending {
+    background: #ffc107;
+    color: white;
+}
+
+.order-detail-status.completed {
+    background: #4caf50;
+    color: white;
+}
+
+.order-detail-status.cancelled {
+    background: #f44336;
+    color: white;
+}
+
+/* Danh sách sản phẩm */
+.order-detail-products {
+    margin-bottom: 20px;
+}
+
+.order-detail-product {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease;
+}
+
+.order-detail-product:hover {
+    background: #f1f1f1;
+}
+
+.order-detail-product img {
+    width: auto;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.order-detail-product-info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.order-detail-product-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.order-detail-product-price {
+    color: #e91e63;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Tổng tiền và thanh toán */
+.order-detail-summary {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.order-detail-total {
+    color: #ff5722;
+}
+
+.order-detail-payment {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Hiệu ứng loading & lỗi */
+.loading-detail,
+.not-found-detail {
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+}
+
+.loading-detail {
+    color: gray;
+}
+
+.not-found-detail {
+    color: red;
+}

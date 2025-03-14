@@ -1,0 +1,74 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đảm bảo nút nằm dưới */
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    height: 100%; /* Đảm bảo chiều cao đồng nhất */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: auto; /* Đặt chiều cao cố định cho ảnh */
+    object-fit: cover;
+}
+
+.product-info {
+    flex-grow: 1; /* Giúp phần này lấp đầy không gian còn lại */
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+  
+
+.product-price {
+    font-size: 18px;
+    color: #e63946;
+    font-weight: bold;
+    margin-bottom: 5px; /* Thêm khoảng cách giữa price và discount */
+}
+
+.product-discount {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    display: block; /* Đảm bảo nó xuống dòng */
+}
+
+
+.add-to-cart {
+    width: 100%;
+    background:  #e63946;;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: auto; /* Đẩy nút xuống đáy */
+}
+
+.add-to-cart:hover {
+    background: #e63946;
+}

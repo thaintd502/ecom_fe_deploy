@@ -1,0 +1,126 @@
+.order-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.order-item:hover {
+    transform: scale(1.02);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Trạng thái đơn hàng */
+.order-status {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.order-status.processing {
+    background: #ffeb3b;
+    color: #ff9800;
+}
+
+.order-status.completed {
+    background: #4caf50;
+    color: #fff;
+}
+
+.order-status.cancelled {
+    background: #f44336;
+    color: #fff;
+}
+
+/* Danh sách sản phẩm */
+.order-product {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-product img {
+    width: 70px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.product-name-orders {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200px;
+   
+}
+
+.product-price-orders {
+    font-size: 14px;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Tổng tiền */
+.total-price-orders {
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    text-align: right;
+    /* margin-top: 10px; */
+}
+
+/* Nút xem chi tiết */
+.btn-detail {
+    background: #ff5722;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    /* margin-left: 10px; */
+}
+
+.btn-detail:hover {
+    background: #e64a19;
+}
+
+.no-items {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: flex-end; /* Đưa nội dung về phía bên phải */
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}

@@ -1,0 +1,21 @@
+
+.pagination {
+    display: flex;
+    justify-content: center;  /* Căn giữa ngang */
+    align-items: center;      /* Căn giữa dọc */
+    gap: 15px;                /* Khoảng cách giữa các phần tử */
+    margin-top: 20px;         /* Thêm khoảng cách phía trên */
+  }
+  
+  .pagination button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .pagination button:disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+  

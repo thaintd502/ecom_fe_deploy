@@ -1,6 +1,6 @@
 import React from 'react';
-import './global.css'; // Import các file CSS cần thiết
-import './index.css';
+// import './global.css';
+// import './index.css';
 // import './public/logosfacebook.svg'; // Import hình ảnh
 // import './public/icon-of-zalo-1.svg';
 

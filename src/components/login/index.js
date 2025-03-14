@@ -22,7 +22,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://34.92.164.246:9090/api/public/auth/signin', {
+      const response = await axios.post('https://ecom-amwn.onrender.com/api/public/auth/signin', {
         username: phone,
         password,
       });

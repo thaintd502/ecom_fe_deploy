@@ -3,14 +3,39 @@
 /* Nếu bạn sử dụng font từ Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+.user-login-error-message {
+  color: red;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.user-login-forgot-password {
+  text-align: right; /* Căn phải */
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  margin-top: 8px; /* Khoảng cách với nút đăng nhập */
+}
+
+.user-login-forgot-password a {
+  text-decoration: none;
+  color: #007bff; 
+  font-size: 14px;
+}
+
+.user-login-forgot-password a:hover {
+  text-decoration: underline; /* Hiệu ứng hover */
+}
+
+
 .user-login-container {
+  min-height: 66vh;
+  /* flex: 1; */
     display: flex;
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     /* height: 50vh; */
     padding-top: 20px;
-    padding-bottom: 50px;
-    background-color: rgba(255, 143, 0, 1); /* Đổi màu nền thành rgba(255, 143, 0, 1) */
+    padding-bottom: 20px;
+    background-color: rgba(255, 143, 0, 1);/* Đổi màu nền thành rgba(255, 143, 0, 1) */
 }
 
 .user-login-left {
@@ -126,9 +151,11 @@
     justify-content: flex-start;
     font-family: var(--h5-regular);
     font-size: var(--h5-regular-size);
-    color: var(--color-gray-100);
+    /* color: var(--color-gray-100); */
     min-width: 236px;
     max-width: 100%;
+    height: 35px;
+    margin-left: 5px;
 }
 
 .user-login-input-suffix-icon {
@@ -449,10 +476,11 @@
   font-size: var(--body-regular-size);
   line-height: 22px;
   font-family: var(--h5-regular);
-  color: var(--color-red);
+  color: #007bff; 
   text-align: center;
   display: inline-block;
   min-width: 50px;
+  margin-top: 2px;
 }
 
 .user-login-button2,

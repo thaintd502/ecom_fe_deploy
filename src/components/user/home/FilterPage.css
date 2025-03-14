@@ -1,0 +1,42 @@
+/* src/pages/FilterPage.css */
+.filter-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    /* position: sticky; */
+    top: 60px; /* Khoảng cách dưới Header nếu Header cao 60px */
+    z-index: 1000;
+    /* padding: 10px 20px; */
+}
+
+.filter-bar-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Cho phép cuộn ngang nếu quá dài */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.filter-bar-item {
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap; /* Giúp mục không bị xuống dòng */
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    color: #e63946;
+    background-color: white;
+    border: 1px solid transparent;
+}
+
+.filter-bar-item:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-bar-item.active,
+.filter-bar-item:active {
+    color: #fff;
+    background-color: #ff5722;
+    border-color: #ff5722;
+}

@@ -1,0 +1,38 @@
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Tự động điều chỉnh cột */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Đảm bảo hiển thị chính xác số cột mong muốn */
+  @media (min-width: 1200px) {
+    .product-list {
+      grid-template-columns: repeat(5, 1fr); /* 6 sản phẩm trên hàng khi màn hình lớn */
+    }
+  }
+  
+  @media (max-width: 1199px) {
+    .product-list {
+      grid-template-columns: repeat(5, 1fr); /* 5 sản phẩm trên hàng khi màn hình vừa */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .product-list {
+      grid-template-columns: repeat(4, 1fr); /* 4 sản phẩm trên hàng khi màn hình nhỏ */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product-list {
+      grid-template-columns: repeat(2, 1fr); /* 2 sản phẩm trên hàng trên mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-list {
+      grid-template-columns: repeat(1, 1fr); /* 1 sản phẩm trên hàng trên màn hình rất nhỏ */
+    }
+  }
+  

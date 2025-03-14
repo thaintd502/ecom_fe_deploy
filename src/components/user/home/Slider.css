@@ -1,0 +1,30 @@
+.slider-container {
+    width: 70%;
+    /* max-width: 1200px; */
+    margin: 20px auto;
+    overflow: hidden;
+  }
+  
+  .slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* .slide-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  } */
+
+  
+  .slide-image {
+    width: 100%; /* Đảm bảo ảnh chiếm hết khung slider */
+    max-height: 400px;
+    height: auto; /* Giữ tỉ lệ ảnh */
+    border-radius: 10px; /* Bo góc nhẹ */
+  }
+  
+
+
+  

@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import icon
+
+import './index.css';
+
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [products, setProducts] = useState([]); // Danh sách sản phẩm
+  const [searchTerm, setSearchTerm] = useState(''); // Tìm kiếm
+  const [currentPage, setCurrentPage] = useState(0); // Trang hiện tại
+  const [totalPages, setTotalPages] = useState(1); // Tổng số trang
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          throw new Error('No token found');
-        }
+    fetchProducts(currentPage); // Gọi API khi trang thay đổi
+  }, [currentPage]);
 
-        const response = await axios.get('http://34.92.164.246:9090/api/public/products', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setProducts(response.data);
-        setFilteredProducts(response.data);
-      } catch (error) {
-        console.error('Failed to fetch products:', error);
+  const fetchProducts = async (page) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No token found');
       }
-    };
 
-    fetchProducts();
-  }, []);
+      const response = await axios.get(`https://ecom-amwn.onrender.com/api/public/products?page=${page}&size=10`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setProducts(response.data.items || []);
+      setTotalPages(response.data.totalPages || 1);
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+      setProducts([]);
+    }
+  };
 
   const handleDelete = async (productId) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
@@ -41,15 +47,14 @@ const ProductList = () => {
       }
 
       try {
-        await axios.delete(`http://34.92.164.246:9090/api/admin/delete-product/${productId}`, {
+        await axios.delete(`https://ecom-amwn.onrender.com/api/admin/delete-product/${productId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        // Update product list after deletion
-        setProducts(products.filter(product => product.productId !== productId));
-        setFilteredProducts(filteredProducts.filter(product => product.productId !== productId));
+        // Reload danh sách sản phẩm sau khi xóa
+        fetchProducts(currentPage);
       } catch (error) {
         console.error('Có lỗi xảy ra khi xóa sản phẩm:', error);
       }
@@ -57,20 +62,10 @@ const ProductList = () => {
   };
 
   const handleSearchChange = (e) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-
-    const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(term) ||
-      product.category.toLowerCase().includes(term) ||
-      product.price.toString().includes(term)
-    );
-
-    setFilteredProducts(filtered);
+    setSearchTerm(e.target.value);
   };
 
-  const handleAddNewProduct = (e) => {
-    e.preventDefault();
+  const handleAddNewProduct = () => {
     navigate('/admin/add-product');
   };
 
@@ -80,8 +75,6 @@ const ProductList = () => {
       currency: 'VND',
     }).format(value).replace('₫', 'đ');
   };
-
-
 
   return (
     <form className="page">
@@ -117,9 +110,9 @@ const ProductList = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map((product, index) => (
+            {products.map((product, index) => (
               <tr key={product.productId}>
-                <td>{index + 1}</td>
+                <td>{index + 1 + currentPage * 10}</td>
                 <td>{product.name}</td>
                 <td>{product.category}</td>
                 <td>{formatCurrency(product.price)}</td>
@@ -132,6 +125,33 @@ const ProductList = () => {
           </tbody>
         </table>
       </div>
+
+
+      <div className="pagination">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setCurrentPage((prev) => Math.max(prev - 1, 0));
+          }}
+          disabled={currentPage === 0}
+        >
+          <FaArrowLeft size={10} /> {/* Mũi tên trái */}
+        </button>
+
+        <span> Trang {currentPage + 1} / {totalPages} </span>
+
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+          }}
+          disabled={currentPage >= totalPages - 1}
+        >
+          <FaArrowRight size={10} /> {/* Mũi tên phải */}
+        </button>
+      </div>
+
+
     </form>
   );
 };

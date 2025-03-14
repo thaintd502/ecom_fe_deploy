@@ -1,0 +1,164 @@
+.product-detail {
+  width: 80%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.product-detail-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hình ảnh sản phẩm */
+.product-images {
+  flex: 1;
+  text-align: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.thumbnail-images img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Thông tin sản phẩm */
+.product-info {
+  flex: 2;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+}
+
+/* .product-name {
+  font-size: 24px;
+  font-weight: bold;
+} */
+
+/* .product-price {
+  font-size: 22px;
+  color: #e63946;
+  font-weight: bold;
+} */
+
+.product-rating {
+  font-size: 16px;
+  color: #ff9f00;
+}
+
+.product-category {
+  margin-top: 10px;
+  color: #777;
+}
+
+/* Nút mua hàng */
+.product-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.buy-now,
+.add-to-cart-detail {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+  width: 100%;
+  background:  #e63946;
+  color: white;
+  padding: 10px;
+  border: none;
+ 
+  transition: background 0.3s;
+  /* margin-top: auto; */
+}
+
+.buy-now {
+  background-color: #ff5722;
+  color: white;
+}
+
+/* .add-to-cart {
+  background-color: #ff9f00;
+  color: white;
+} */
+
+.product-description {
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 2px solid #ddd;
+}
+
+.product-comments {
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 2px solid #ddd;
+}
+
+.average-rating {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff9f00;
+  margin-bottom: 10px;
+}
+
+/* Bình luận */
+.comment {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.comment .rating {
+  font-size: 14px;
+  color: #ff9f00;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.quantity-display {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.message {
+  color: #d9534f; /* Màu đỏ cho lỗi hoặc thông báo */
+  margin-top: 10px;
+}

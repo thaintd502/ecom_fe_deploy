@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://34.92.164.246:9090/api/public/signin', { userName: phone, password });
+      const response = await axios.post('https://ecom-amwn.onrender.com/api/public/signin', { userName: phone, password });
       const { token, userName, listRoles } = response.data;
 
       localStorage.setItem('token', token);

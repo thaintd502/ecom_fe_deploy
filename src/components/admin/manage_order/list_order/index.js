@@ -18,7 +18,7 @@ const OrderList = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://34.92.164.246:9090/api/admin/get-all-orders', {
+        const response = await axios.get('https://ecom-amwn.onrender.com/api/admin/get-all-orders', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +42,7 @@ const OrderList = () => {
         return;
       }
 
-      axios.delete(`http://34.92.164.246:9090/api/admin/delete-order/${orderId}`, {
+      axios.delete(`https://ecom-amwn.onrender.com/api/admin/delete-order/${orderId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +75,7 @@ const OrderList = () => {
   };
 
   const handleStatusChange = (orderId, newStatus) => {
-    axios.put(`http://34.92.164.246:9090/api/admin/update-order-status/${orderId}`, { status: newStatus }, {
+    axios.put(`https://ecom-amwn.onrender.com/api/admin/update-order-status/${orderId}`, { status: newStatus }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
@@ -167,8 +167,8 @@ const OrderList = () => {
                 <td>
                   <a href={`/admin/bill-details/${order.orderId}`}>00000{order.orderId}</a>
                 </td>
-                <td>{order.customerName}</td>
-                <td>{order.customerPhone}</td>
+                <td>{order.customer?.name || 'Không có tên'}</td>
+                <td>{order.customer?.phone || 'Không có số điện thoại'}</td>
                 <td>{formatDate(order.orderDate)}</td>
                 <td>{formatCurrency(order.totalAmount)}</td>
                 <td>{formatCurrency(order.shippingFee)}</td>
