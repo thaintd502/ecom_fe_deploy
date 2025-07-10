@@ -20,6 +20,7 @@ import ForgotPassword from "../forgot-password/ForgotPassword.js";
 import VerifyOtp from "../forgot-password/VerifyOtp.js";
 import ResetPassword from "../forgot-password/ResetPassword.js";
 import AccountPage from "../my-account/AccountPage.js";
+import NotificationBox from "../../websocket/NotificationBox.js";
 
 const Home = () => {
 
@@ -45,6 +46,8 @@ const Home = () => {
         <Route path="/verify-otp" element={<VerifyOtp />} /> 
         <Route path="/reset-password" element={<ResetPassword />} /> 
         <Route path="/account" element={<AccountPage />} /> 
+
+        <Route path="/notify" element={<NotificationBox />} /> 
 
       </Routes>
       <Footer />
