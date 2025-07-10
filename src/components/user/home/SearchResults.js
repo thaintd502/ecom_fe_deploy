@@ -13,7 +13,7 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const response = await fetch(`https://ecom-amwn.onrender.com/api/public/products/search-by-keyword?keyword=${keyword}`);
+        const response = await fetch(`http://localhost:9090/api/public/products/search-by-keyword?keyword=${keyword}`);
         if (response.ok) {
           const data = await response.json();
           setProducts(data);

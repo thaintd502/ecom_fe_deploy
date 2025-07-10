@@ -23,7 +23,7 @@ const OrderPage = () => {
             }
 
             try {
-                const response = await fetch("https://ecom-amwn.onrender.com/api/public/view-cart", {
+                const response = await fetch("http://localhost:9090/api/public/view-cart", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -45,7 +45,7 @@ const OrderPage = () => {
             if (!token) return;
 
             try {
-                const response = await fetch("https://ecom-amwn.onrender.com/api/public/customer-address", {
+                const response = await fetch("http://localhost:9090/api/public/customer-address", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -80,7 +80,7 @@ const OrderPage = () => {
             }
     
             // 🔍 Gọi API lấy địa chỉ
-            const addressResponse = await fetch("https://ecom-amwn.onrender.com/api/public/customer-address", {
+            const addressResponse = await fetch("http://localhost:9090/api/public/customer-address", {
                 headers: { Authorization: `Bearer ${token}` },
             });
     
@@ -97,7 +97,7 @@ const OrderPage = () => {
     
             // 🛒 Nếu có địa chỉ, tiếp tục đặt hàng (Gửi addressId qua query param)
             const orderResponse = await fetch(
-                `https://ecom-amwn.onrender.com/api/public/order?paymentMethod=${paymentMethod}&addressId=${addressData.addressId}`,
+                `http://localhost:9090/api/public/order?paymentMethod=${paymentMethod}&addressId=${addressData.addressId}`,
                 {
                     method: "POST",
                     headers: {
@@ -111,7 +111,7 @@ const OrderPage = () => {
                 if (paymentMethod === "VNPay") {
                     const returnUrl = `${window.location.origin}/payment-success`;
                     const vnpayResponse = await fetch(
-                        `https://ecom-amwn.onrender.com/api/public/vn-pay?amount=${totalPrice}&bankCode=NCB&returnUrl=${encodeURIComponent(returnUrl)}`
+                        `http://localhost:9090/api/public/vn-pay?amount=${totalPrice}&bankCode=NCB&returnUrl=${encodeURIComponent(returnUrl)}`
                     );
     
                     if (vnpayResponse.ok) {
@@ -151,7 +151,7 @@ const OrderPage = () => {
                 addressId: shippingAddress?.addressId || null, // Nếu có addressId thì gửi, nếu không thì null
             };
     
-            const response = await fetch("https://ecom-amwn.onrender.com/api/public/save-customer-address", {
+            const response = await fetch("http://localhost:9090/api/public/save-customer-address", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -183,10 +183,10 @@ const OrderPage = () => {
                 <h3>Thông tin giao hàng</h3>
                 {shippingAddress && shippingAddress.address ? (
                     <p>Địa chỉ:
-                        {shippingAddress.address || "Chưa có địa chỉ"},
-                        {shippingAddress.commune || "Chưa có địa chỉ"},
-                        {shippingAddress.district || "Chưa có địa chỉ"},
-                        {shippingAddress.city || "Chưa có địa chỉ"}
+                        {" " + shippingAddress.address || "Chưa có địa chỉ"}, 
+                        {" " + shippingAddress.commune || "Chưa có địa chỉ"},
+                        {" " + shippingAddress.district || "Chưa có địa chỉ"},
+                        {" " + shippingAddress.city || "Chưa có địa chỉ"}
                     </p>
                 ) : (
                     <div>

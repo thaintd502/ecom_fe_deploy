@@ -24,10 +24,12 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userName");
+    localStorage.removeItem("token"); // Xóa token khi đăng xuất
     setUserName(null);
     window.dispatchEvent(new Event("user-login"));
     navigate("/login");
-  };
+};
+
 
   const handleCartClick = () => {
     if (!userName) {
@@ -57,11 +59,20 @@ const Header = () => {
     }
   
     try {
-      const response = await fetch(`https://ecom-amwn.onrender.com/api/public/products/search-by-keyword?keyword=${keyword}`);
+      const response = await fetch(`http://localhost:9090/api/public/products/search-by-keyword?keyword=${keyword}`);
       if (response.ok) {
         const data = await response.json();
-        setSearchResults(data);
-        setShowResults(data.length > 0);
+        
+        console.log("🔍 Kết quả tìm kiếm:", data); // Debug
+  
+        // ✅ Chỉ hiển thị gợi ý nếu có sản phẩm
+        if (data.length > 0) {
+          setSearchResults(data);
+          setShowResults(true);
+        } else {
+          setSearchResults([]);
+          setShowResults(false);
+        }
       } else {
         setSearchResults([]);
         setShowResults(false);
@@ -72,6 +83,7 @@ const Header = () => {
       setShowResults(false);
     }
   };
+  
   
   
 

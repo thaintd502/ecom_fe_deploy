@@ -8,7 +8,7 @@ const FilterPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://ecom-amwn.onrender.com/api/public/get-all-categories")
+    fetch("http://localhost:9090/api/public/get-all-categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((error) => {

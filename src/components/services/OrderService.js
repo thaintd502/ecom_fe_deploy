@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://ecom-amwn.onrender.com/api/public";
+const API_BASE_URL = "http://localhost:9090/api/public";
 
 export const fetchOrders = async (token) => {
     try {

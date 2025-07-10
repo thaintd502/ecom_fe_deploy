@@ -30,7 +30,7 @@ const EditProduct = () => {
         const fetchProduct = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`https://ecom-amwn.onrender.com/api/public/product/${productId}`, {
+                const response = await axios.get(`http://localhost:9090/api/public/product/${productId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -64,12 +64,12 @@ const EditProduct = () => {
             try {
                 const token = localStorage.getItem('token');
                 const [brandsResponse, categoriesResponse] = await Promise.all([
-                    axios.get('https://ecom-amwn.onrender.com/api/public/get-all-brands', {
+                    axios.get('http://localhost:9090/api/public/get-all-brands', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     }),
-                    axios.get('https://ecom-amwn.onrender.com/api/public/get-all-categories', {
+                    axios.get('http://localhost:9090/api/public/get-all-categories', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -118,7 +118,7 @@ const EditProduct = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put(`https://ecom-amwn.onrender.com/api/admin/edit-product/${productId}`, formData, {
+            const response = await axios.put(`http://localhost:9090/api/admin/edit-product/${productId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

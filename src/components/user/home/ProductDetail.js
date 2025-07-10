@@ -12,7 +12,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`https://ecom-amwn.onrender.com/api/public/product/${id}`);
+        const res = await fetch(`http://localhost:9090/api/public/product/${id}`);
         if (!res.ok) throw new Error("Không thể lấy dữ liệu sản phẩm");
         const data = await res.json();
         setProduct(data);
@@ -24,7 +24,7 @@ const ProductDetail = () => {
 
     const fetchRating = async () => {
       try {
-        const res = await fetch(`https://ecom-amwn.onrender.com/api/public/average-rating/${id}`);
+        const res = await fetch(`http://localhost:9090/api/public/average-rating/${id}`);
         if (res.ok) {
           const data = await res.json();
           setAverageRating(data);
@@ -36,7 +36,7 @@ const ProductDetail = () => {
 
     const fetchComments = async () => {
       try {
-        const res = await fetch(`https://ecom-amwn.onrender.com/api/public/comments/${id}`);
+        const res = await fetch(`http://localhost:9090/api/public/comments/${id}`);
         if (res.ok) {
           const data = await res.json();
           setComments(data);
@@ -60,7 +60,7 @@ const ProductDetail = () => {
 
     try {
       const response = await fetch(
-        `https://ecom-amwn.onrender.com/api/public/add-product-to-cart/${id}?quantity=1`,
+        `http://localhost:9090/api/public/add-product-to-cart/${id}?quantity=1`,
         {
           method: "POST",
           headers: {

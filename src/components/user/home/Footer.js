@@ -16,8 +16,8 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Liên kết</h3>
           <ul>
-            <li><Link to="/">Trang chủ</Link></li>
-            <li><Link to="/products">Sản phẩm</Link></li>
+            <li><Link to="/home">Trang chủ</Link></li>
+            <li><Link to="/home">Sản phẩm</Link></li>
             <li><Link to="/about">Giới thiệu</Link></li>
             <li><Link to="/contact">Liên hệ</Link></li>
           </ul>
@@ -26,9 +26,9 @@ const Footer = () => {
         {/* Cột 3: Liên hệ */}
         <div className="footer-section">
           <h3>Liên hệ</h3>
-          <p>📍 Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM</p>
+          <p>📍 Địa chỉ: Hà Nội</p>
           <p>📞 Hotline: 0123 456 789</p>
-          <p>📧 Email: support@example.com</p>
+          <p>📧 Email: public.net.vn@gmail.com</p>
         </div>
       </div>
 

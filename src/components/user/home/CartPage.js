@@ -18,7 +18,7 @@ const CartPage = () => {
       }
 
       try {
-        const response = await fetch("https://ecom-amwn.onrender.com/api/public/view-cart", {
+        const response = await fetch("http://localhost:9090/api/public/view-cart", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -47,7 +47,7 @@ const CartPage = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://ecom-amwn.onrender.com/api/public/carts/update-product-quantity", {
+      const response = await fetch("http://localhost:9090/api/public/carts/update-product-quantity", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const CartPage = () => {
   const handleRemoveItem = async (cartItemId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://ecom-amwn.onrender.com/api/public/carts/delete-cart-item/${cartItemId}`, {
+      const response = await fetch(`http://localhost:9090/api/public/carts/delete-cart-item/${cartItemId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -16,7 +16,7 @@ const OrderDetail = () => {
             }
 
             try {
-                const response = await fetch(`https://ecom-amwn.onrender.com/api/public/orders/${orderId}`, {
+                const response = await fetch(`http://localhost:9090/api/public/orders/${orderId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 

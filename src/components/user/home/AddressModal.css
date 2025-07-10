@@ -51,6 +51,18 @@
     transition: border 0.3s ease-in-out;
 }
 
+.modal select {
+    width: 94%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+
 .modal input:focus {
     border-color: #ff5722;
 }

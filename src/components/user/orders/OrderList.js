@@ -10,7 +10,7 @@ const OrderList = ({ orders }) => {
 
     return (
         <div className="order-list">
-            {orders.map((order) => (
+            {orders.slice().reverse().map((order) => (
                 <OrderItem key={order.orderId} order={order} />
             ))}
         </div>

@@ -10,7 +10,7 @@ const CategoryPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://ecom-amwn.onrender.com/api/public/products/categories?categoryId=${categoryId}`)
+    fetch(`http://localhost:9090/api/public/products/categories?categoryId=${categoryId}`)
       .then((res) => res.json())
       .then((data) => setProducts(data || []))
       .catch((error) => console.error("Error fetching products:", error));
@@ -19,7 +19,7 @@ const CategoryPage = () => {
   return (
     <div className="category-page">
       {/* <h2>Sản phẩm theo danh mục</h2> */}
-      <SortBar className="category-page-sortbar" />
+      {/* <SortBar className="category-page-sortbar" /> */}
       <ProductList products={products} />
     </div>
   );

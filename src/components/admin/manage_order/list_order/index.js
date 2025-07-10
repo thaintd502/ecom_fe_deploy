@@ -18,7 +18,7 @@ const OrderList = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('https://ecom-amwn.onrender.com/api/admin/get-all-orders', {
+        const response = await axios.get('http://localhost:9090/api/admin/get-all-orders', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +42,7 @@ const OrderList = () => {
         return;
       }
 
-      axios.delete(`https://ecom-amwn.onrender.com/api/admin/delete-order/${orderId}`, {
+      axios.delete(`http://localhost:9090/api/admin/delete-order/${orderId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +75,7 @@ const OrderList = () => {
   };
 
   const handleStatusChange = (orderId, newStatus) => {
-    axios.put(`https://ecom-amwn.onrender.com/api/admin/update-order-status/${orderId}`, { status: newStatus }, {
+    axios.put(`http://localhost:9090/api/admin/update-order-status/${orderId}`, { status: newStatus }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',

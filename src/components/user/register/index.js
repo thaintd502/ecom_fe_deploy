@@ -28,7 +28,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await fetch("https://ecom-amwn.onrender.com/api/public/signup", {
+      const response = await fetch("http://localhost:9090/api/public/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

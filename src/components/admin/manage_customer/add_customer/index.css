@@ -641,7 +641,8 @@
     max-width: 100%;
   }
   .add-customer-placeholder-left {
-    width: calc(100% - 12.add-customer-5px);
+    width: calc(100% - 12px);
+
     border: 0;
     outline: 0;
     font-family: var(--body-regular);

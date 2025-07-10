@@ -24,7 +24,7 @@ const ProductList = () => {
         throw new Error('No token found');
       }
 
-      const response = await axios.get(`https://ecom-amwn.onrender.com/api/public/products?page=${page}&size=10`, {
+      const response = await axios.get(`http://localhost:9090/api/public/products?page=${page}&size=10`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,7 @@ const ProductList = () => {
       }
 
       try {
-        await axios.delete(`https://ecom-amwn.onrender.com/api/admin/delete-product/${productId}`, {
+        await axios.delete(`http://localhost:9090/api/admin/delete-product/${productId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

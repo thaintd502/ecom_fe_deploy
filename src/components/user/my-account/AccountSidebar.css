@@ -1,0 +1,39 @@
+.account-sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-right: 1px solid #ddd;
+    min-height: 100%;
+  }
+  
+  .account-sidebar button {
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  .account-sidebar button:hover {
+    background: #e9ecef;
+  }
+  
+  .account-sidebar button.active {
+    background: #eb1729;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .account-sidebar button.active:hover {
+    background: #e63946;
+  }
+  

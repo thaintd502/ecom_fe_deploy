@@ -34,7 +34,7 @@ const EditCustomerForm = () => {
             try {
                 const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
 
-                const customerResponse = await fetch(`https://ecom-amwn.onrender.com/api/public/customer/${id}`, {
+                const customerResponse = await fetch(`http://localhost:9090/api/public/customer/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}` // Include the Authorization header
@@ -59,7 +59,7 @@ const EditCustomerForm = () => {
                     setImagePreviewUrl(customerData.imageUrl);
 
                     // Fetch customer address
-                    const addressResponse = await fetch(`https://ecom-amwn.onrender.com/api/public/customer-address/${id}`, {
+                    const addressResponse = await fetch(`http://localhost:9090/api/public/customer-address/${id}`, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
@@ -116,7 +116,7 @@ const EditCustomerForm = () => {
                 formDataObj.append('imageUrl', formData.imageUrl);
             }
 
-            const response = await fetch(`https://ecom-amwn.onrender.com/api/public/edit-customer/${id}`, {
+            const response = await fetch(`http://localhost:9090/api/public/edit-customer/${id}`, {
                 method: 'PUT', // Use PUT method for updating data
                 headers: {
                     'Authorization': `Bearer ${token}` // Include the Authorization header

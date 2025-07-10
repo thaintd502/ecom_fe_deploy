@@ -41,7 +41,7 @@ const AddUserForm = () => {
 
       console.log('Sending user data:', newUser);
 
-      const response = await axios.post('https://ecom-amwn.onrender.com/api/public/signup', newUser, {
+      const response = await axios.post('http://localhost:9090/api/public/signup', newUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -20,7 +20,7 @@ const LoginForm = () => {
     setError('');
   
     try {
-      const response = await fetch('https://ecom-amwn.onrender.com/api/public/signin', {
+      const response = await fetch('http://localhost:9090/api/public/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName: phone, password }),
@@ -103,7 +103,7 @@ const LoginForm = () => {
               <a href="/register" className="user-login-text2">Đăng ký</a>
             </div>
 
-            <div className="user-login-input-fields1">
+            {/* <div className="user-login-input-fields1">
               <div className="user-login-hoc">Hoặc</div>
             </div>
 
@@ -114,7 +114,7 @@ const LoginForm = () => {
                 </div>
                 <div className="user-login-text4">Tiếp tục với Google</div>
               </button>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

@@ -18,8 +18,8 @@ const HomePage = () => {
 
   useEffect(() => {
     let apiUrl = selectedCategory
-      ? `https://ecom-amwn.onrender.com/api/public/products/categories?categoryId=${selectedCategory}`
-      : `https://ecom-amwn.onrender.com/api/public/products?page=${page}&size=10`;
+      ? `http://localhost:9090/api/public/products/categories?categoryId=${selectedCategory}`
+      : `http://localhost:9090/api/public/products?page=${page}&size=10`;
 
     fetch(apiUrl)
       .then((res) => res.json())
@@ -41,7 +41,7 @@ const HomePage = () => {
   }, [selectedCategory, page]);
 
   useEffect(() => {
-    fetch("https://ecom-amwn.onrender.com/api/public/get-all-categories")
+    fetch("http://localhost:9090/api/public/get-all-categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((error) => {

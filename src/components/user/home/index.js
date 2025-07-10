@@ -16,6 +16,10 @@ import AddAddressPage from "./AddAddressPage.js";
 import OrdersPage from "../orders/OrdersPage.js";
 import OrderDetail from "../orders/OrderDetail.js";
 import SearchResults from "./SearchResults.js";
+import ForgotPassword from "../forgot-password/ForgotPassword.js";
+import VerifyOtp from "../forgot-password/VerifyOtp.js";
+import ResetPassword from "../forgot-password/ResetPassword.js";
+import AccountPage from "../my-account/AccountPage.js";
 
 const Home = () => {
 
@@ -37,6 +41,10 @@ const Home = () => {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/order/:orderId" element={<OrderDetail />} />
         <Route path="/search" element={<SearchResults />} /> 
+        <Route path="/forgot-password" element={<ForgotPassword />} /> 
+        <Route path="/verify-otp" element={<VerifyOtp />} /> 
+        <Route path="/reset-password" element={<ResetPassword />} /> 
+        <Route path="/account" element={<AccountPage />} /> 
 
       </Routes>
       <Footer />
